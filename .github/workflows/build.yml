@@ -20,15 +20,16 @@ jobs:
         distribution: 'temurin'
         cache: gradle
 
-    - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
+    - name: Fix Linux Permissions for Gradlew
+      run: |
+        git update-index --chmod=+x gradlew
+        chmod +x gradlew
 
-    - name: Build Custom Debug APK
-      run: ./gradlew assembleDebug
+    - name: Clean and Build Debug APK
+      run: ./gradlew clean assembleDebug
 
     - name: Upload Finished APK
       uses: actions/upload-artifact@v4
       with:
         name: MyCustomGalleryGPT
         path: app/build/outputs/apk/debug/app-debug.apk
-        
