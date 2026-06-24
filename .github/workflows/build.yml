@@ -18,12 +18,15 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-        cache: gradle
+
+    - name: Setup Gradle
+      uses: gradle/actions/setup-gradle@v4
+
+    - name: Generate Missing Gradle Wrapper
+      run: gradle wrapper --gradle-version 8.2
 
     - name: Fix Linux Permissions for Gradlew
-      run: |
-        git update-index --chmod=+x gradlew
-        chmod +x gradlew
+      run: chmod +x gradlew
 
     - name: Clean and Build Debug APK
       run: ./gradlew clean assembleDebug
