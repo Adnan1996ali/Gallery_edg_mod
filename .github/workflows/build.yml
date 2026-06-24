@@ -24,15 +24,18 @@ jobs:
 
     - name: Generate Missing Gradle Wrapper
       run: gradle wrapper --gradle-version 8.2
+      working-directory: gallery-main # إذا كان اسم المجلد الفرعي مختلفاً أخبرني به
 
     - name: Fix Linux Permissions for Gradlew
       run: chmod +x gradlew
+      working-directory: gallery-main
 
     - name: Clean and Build Debug APK
       run: ./gradlew clean assembleDebug
+      working-directory: gallery-main
 
     - name: Upload Finished APK
       uses: actions/upload-artifact@v4
       with:
         name: MyCustomGalleryGPT
-        path: app/build/outputs/apk/debug/app-debug.apk
+        path: gallery-main/app/build/outputs/apk/debug/app-debug.apk
