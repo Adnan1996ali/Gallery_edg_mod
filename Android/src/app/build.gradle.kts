@@ -32,10 +32,6 @@ android {
   namespace = "alpha.ai.chat"
   compileSdk = 36
 
-  aarMetadata {
-    minCompileSdk = 1
-  }
-
   defaultConfig {
     applicationId = "alpha.ai.chat"
     minSdk = 24
