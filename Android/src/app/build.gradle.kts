@@ -51,7 +51,7 @@ android {
 
   signingConfigs {
     create("release") {
-      storeFile = file("../alphaai.keystore")
+      storeFile = file("../../alphaai.keystore")
       storePassword = "alphaai123"
       keyAlias = "alphaai"
       keyPassword = "alphaai123"
