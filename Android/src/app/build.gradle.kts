@@ -30,7 +30,11 @@ plugins {
 
 android {
   namespace = "alpha.ai.chat"
-  compileSdk = 35
+  compileSdk = 36
+
+  aarMetadata {
+    minCompileSdk = 1
+  }
 
   defaultConfig {
     applicationId = "alpha.ai.chat"
