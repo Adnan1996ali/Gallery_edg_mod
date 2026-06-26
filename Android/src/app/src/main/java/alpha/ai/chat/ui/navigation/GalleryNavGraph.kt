@@ -15,6 +15,7 @@ import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.scaleIn
 import androidx.compose.animation.slideInVertically
 import androidx.compose.animation.slideOutVertically
@@ -250,7 +251,7 @@ fun GalleryNavHost(
           lastNavigatedModelName = modelName
         }
 
-        val customTask = modelManagerViewModel.getTaskByTaskId(id = "llm_chat")
+        val customTask = modelManagerViewModel.getCustomTaskByTaskId(id = "llm_chat")
         if (customTask != null) {
           customTask.MainScreen(
             data = CustomTaskDataForBuiltinTask(
